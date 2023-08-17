@@ -1,18 +1,38 @@
+let coolThings = ['sid', 'charlie', 'gaming'];
+const effect = "rotateComplex";
+
+/**
+ * This shit hit da gwiddy
+ */
 function checkInput() {
-  let userInput = document.getElementById("textboxInput").value;
-  let messageElement = document.getElementById("message");
-  let coolThings = ['sid', 'charlie', 'gaming'];
+  const userInput = document.getElementById("checkTextInput").value;
+  document.getElementById("message").classList.remove(effect);
+  let selectedMessage = "Not funny man really not cool at all like cmon bro.";
 
   if (userInput === "") {
-    messageElement.textContent = "HUH.";
+    selectedMessage = "HUH.";
   } else if (coolThings.includes(userInput)) {
-    messageElement.textContent = "hehe thats funny";
-  } else {
-    messageElement.textContent = "Not funny man really not cool at all like cmon bro.";
+    selectedMessage = "hehe thats funny";
   }
+
+  document.getElementById("message").textContent = selectedMessage;
+  setTimeout(function () {
+    document.getElementById("message").classList.add(effect);
+  }, 100)
+
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  let checkButton = document.getElementById("checkButton");
-  checkButton.addEventListener("click", checkInput);
-});
+/**
+ * idk lol ඞ
+ */
+function addInput() {
+  coolThings.push(document.getElementById("newTextInput").value);
+}
+
+document
+  .getElementById("checkButton")
+  .addEventListener("click", checkInput);
+
+document
+  .getElementById("newButton")
+  .addEventListener("click", addInput);
